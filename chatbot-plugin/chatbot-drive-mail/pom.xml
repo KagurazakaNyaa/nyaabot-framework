@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <project
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0"
@@ -6,11 +6,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.kagurazakanyaa</groupId>
-		<artifactId>chatbot-framework</artifactId>
+		<artifactId>chatbot-plugin</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>chatbot-api</artifactId>
-	<name>chatbot-api</name>
+	<artifactId>chatbot-drive-mail</artifactId>
+	<name>chatbot-drive-mail</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -21,6 +21,11 @@
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.simplejavamail</groupId>
+			<artifactId>simple-java-mail</artifactId>
+			<version>6.4.3</version>
 		</dependency>
 	</dependencies>
 </project>
