@@ -6,16 +6,21 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.kagurazakanyaa</groupId>
-		<artifactId>chatbot-framework</artifactId>
+		<artifactId>chatbot-plugin</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>chatbot</artifactId>
-	<name>chatbot</name>
+	<artifactId>chatbot-drive-rocketchat</artifactId>
+	<name>chatbot-drive-rocketchat</name>
 	<url>http://maven.apache.org</url>
 	<properties>
-		<java.version>11</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+	<repositories>
+		<repository>
+			<id>repo-snapshots</id>
+			<url>https://repo.craftyn.com/repository/snapshots/</url>
+		</repository>
+	</repositories>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -23,19 +28,10 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.github.baloise</groupId>
+			<artifactId>rocket-chat-rest-client</artifactId>
+			<version>0.1.2-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>com.google.cloud.tools</groupId>
-				<artifactId>jib-maven-plugin</artifactId>
-				<version>2.5.2</version>
-				<configuration>
-					<to>
-						<image>chatbot</image>
-					</to>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 </project>
