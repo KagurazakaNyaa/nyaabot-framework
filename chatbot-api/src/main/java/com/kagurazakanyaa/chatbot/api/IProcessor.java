@@ -1,9 +1,12 @@
 package com.kagurazakanyaa.chatbot.api;
 
+import java.util.EventListener;
+
 import org.pf4j.ExtensionPoint;
 
 /**
- * 处理接口，捕获特定的消息之后进行相应的操作
+ * 处理接口，捕获特定的消息之后进行相应的操作<br>
+ * 处理接口应当提供一个事件监听器，并在接收到特定类型事件后进行处理
  * 
  * @author KagurazakaNyaa <i@kagurazakanyaa.com>
  *
@@ -11,20 +14,11 @@ import org.pf4j.ExtensionPoint;
 public interface IProcessor extends ExtensionPoint {
 
 	/**
-	 * 载入已保存的配置
+	 * 获取监听器
 	 * 
-	 * @param filePath 配置文件路径
-	 * @return 是否成功
+	 * @return 监听器
 	 */
-	public Boolean loadConfig(String filePath);
-
-	/**
-	 * 创建默认配置
-	 * 
-	 * @param filePath 文件路径
-	 * @return 是否成功
-	 */
-	public Boolean createConfig(String filePath);
+	public EventListener getEventListener();
 
 	/***
 	 * 检查驱动依赖是否满足

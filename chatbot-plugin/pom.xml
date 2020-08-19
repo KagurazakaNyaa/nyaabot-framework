@@ -15,6 +15,7 @@
 	<modules>
 		<module>chatbot-driver</module>
 		<module>chatbot-processor</module>
+		<module>chatbot-provider</module>
 	</modules>
 	<dependencies>
 		<dependency>
