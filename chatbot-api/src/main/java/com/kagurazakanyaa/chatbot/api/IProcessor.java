@@ -8,7 +8,7 @@ import org.pf4j.ExtensionPoint;
  * @author KagurazakaNyaa <i@kagurazakanyaa.com>
  *
  */
-public interface IProcesser extends ExtensionPoint {
+public interface IProcessor extends ExtensionPoint {
 
 	/**
 	 * 载入已保存的配置
