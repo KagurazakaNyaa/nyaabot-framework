@@ -1,6 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.kagurazakanyaa</groupId>
@@ -11,4 +10,15 @@
 	<packaging>pom</packaging>
 	<name>chatbot-driver</name>
 	<description>驱动插件</description>
+	<modules>
+		<module>chatbot-driver-discord</module>
+    <module>chatbot-driver-eve</module>
+    <module>chatbot-driver-mail</module>
+    <module>chatbot-driver-mattermost</module>
+    <module>chatbot-driver-mirai</module>
+    <module>chatbot-driver-rocketchat</module>
+    <module>chatbot-driver-slack</module>
+    <module>chatbot-driver-telegram</module>
+    <module>chatbot-driver-xmpp</module>
+  </modules>
 </project>
