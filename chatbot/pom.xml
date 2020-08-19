@@ -13,8 +13,8 @@
 	<name>chatbot</name>
 	<url>http://maven.apache.org</url>
 	<properties>
-		<java.version>11</java.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jib.version>2.5.2</jib.version>
+		<docker.image.name>chatbot</docker.image.name>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -23,16 +23,21 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.kagurazakanyaa</groupId>
+			<artifactId>chatbot-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>jib-maven-plugin</artifactId>
-				<version>2.5.2</version>
+				<version>${jib.version}</version>
 				<configuration>
 					<to>
-						<image>chatbot</image>
+						<image>${docker.image.name}</image>
 					</to>
 				</configuration>
 			</plugin>
