@@ -5,7 +5,8 @@ import java.io.FilenameFilter;
 
 import org.pf4j.JarPluginManager;
 import org.pf4j.PluginManager;
-import com.kagurazakanyaa.chatbot.api.*;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 启动类
@@ -13,15 +14,34 @@ import com.kagurazakanyaa.chatbot.api.*;
  * @author KagurazakaNyaa <i@kagurazakanyaa.com>
  *
  */
+@Slf4j
 public class ChatBotApplication {
 
+	private ChatBotApplication() {
+	}
+
+	private static File pluginFolder = new File("./plugins");
+	private static PluginManager pluginManager = new JarPluginManager();
+
 	/**
-	 * @param args
+	 * 入口函数
+	 * 
+	 * @param args 传入参数，应当有0或1个，<code>args[0]</code>应当为插件的加载路径
 	 */
 	public static void main(String[] args) {
-		PluginManager pluginManager = new JarPluginManager();
 
-		File pluginFolder = new File("./plugins");
+		if (args.length > 0) {
+			try {
+				pluginFolder = new File(args[0]);
+				if (!pluginFolder.exists()) {
+					log.warn("传入的参数不正确，插件文件夹未找到");
+					return;
+				}
+			} catch (Exception ex) {
+				ex.printStackTrace();
+				return;
+			}
+		}
 
 		for (File plugin : pluginFolder.listFiles(new PluginFilter())) {
 			pluginManager.loadPlugin(plugin.toPath());
@@ -29,15 +49,11 @@ public class ChatBotApplication {
 
 		pluginManager.startPlugins();
 
-		for (IDriver driver : pluginManager.getExtensions(IDriver.class)) {
-			driver.init();
-		}
-
 	}
 
 	static class PluginFilter implements FilenameFilter {
 		public boolean accept(File dir, String name) {
-			return name.endsWith(".jar");
+			return name.endsWith(".jar") && dir.exists();
 		}
 	}
 
