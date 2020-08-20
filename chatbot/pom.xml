@@ -11,7 +11,7 @@
 	</parent>
 	<artifactId>chatbot</artifactId>
 	<name>chatbot</name>
-	<url>http://maven.apache.org</url>
+	<url>https://github.com/KagurazakaNyaa/chatbot-framework</url>
 	<properties>
 		<jib.version>2.5.2</jib.version>
 		<docker.image.name>chatbot</docker.image.name>
@@ -27,6 +27,11 @@
 			<groupId>com.kagurazakanyaa</groupId>
 			<artifactId>chatbot-api</artifactId>
 			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -48,6 +53,8 @@
 						<appRoot>/app</appRoot>
 						<volumes>
 							<volume>/app/plugins</volume>
+							<volume>/app/logs</volume>
+							<volume>/app/configs</volume>
 						</volumes>
 						<mainClass>com.kagurazakanyaa.chatbot.ChatBotApplication</mainClass>
 						<creationTime>USE_CURRENT_TIMESTAMP</creationTime>
