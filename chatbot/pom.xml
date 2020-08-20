@@ -36,6 +36,7 @@
 				<artifactId>jib-maven-plugin</artifactId>
 				<version>${jib.version}</version>
 				<configuration>
+					<from>openjdk:11</from>
 					<to>
 						<image>${docker.image.name}</image>
 						<tags>
@@ -48,6 +49,8 @@
 						<volumes>
 							<volume>/app/plugins</volume>
 						</volumes>
+						<mainClass>com.kagurazakanyaa.chatbot.ChatBotApplication</mainClass>
+						<creationTime>USE_CURRENT_TIMESTAMP</creationTime>
 					</container>
 				</configuration>
 			</plugin>
