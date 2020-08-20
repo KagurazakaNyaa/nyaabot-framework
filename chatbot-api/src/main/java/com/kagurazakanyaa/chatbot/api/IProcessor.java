@@ -1,8 +1,8 @@
 package com.kagurazakanyaa.chatbot.api;
 
-import java.util.EventListener;
-
 import org.pf4j.ExtensionPoint;
+
+import com.kagurazakanyaa.chatbot.api.model.Message;
 
 /**
  * 处理接口，捕获特定的消息之后进行相应的操作<br>
@@ -14,16 +14,9 @@ import org.pf4j.ExtensionPoint;
 public interface IProcessor extends ExtensionPoint {
 
 	/**
-	 * 获取监听器
-	 * 
-	 * @return 监听器
+	 * 处理消息
+	 * @param message 消息
 	 */
-	public EventListener getEventListener();
+	public void processMessage(Message message);
 
-	/***
-	 * 检查驱动依赖是否满足
-	 * 
-	 * @return 驱动依赖满足与否
-	 */
-	public Boolean checkDriver();
 }
