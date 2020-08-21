@@ -4,15 +4,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.kagurazakanyaa</groupId>
-	<artifactId>chatbot-framework</artifactId>
+	<artifactId>nyaabot-framework</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>chatbot-framework</name>
+	<name>nyaabot-framework</name>
 	<description>聊天机器人框架</description>
 	<modules>
-		<module>chatbot-api</module>
-		<module>chatbot</module>
-		<module>chatbot-plugin</module>
+		<module>nyaabot-api</module>
+		<module>nyaabot</module>
+		<module>nyaabot-plugin</module>
 	</modules>
 
 	<profiles>
