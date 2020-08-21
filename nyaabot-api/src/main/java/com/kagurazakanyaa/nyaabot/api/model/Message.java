@@ -9,7 +9,7 @@ import lombok.Data;
  *
  */
 @Data
-public abstract class Message {
+public abstract class Message<T> {
 
 	/**
 	 * 消息的来源频道
@@ -19,5 +19,5 @@ public abstract class Message {
 	/**
 	 * 消息内容
 	 */
-	private final String data;
+	private final T data;
 }

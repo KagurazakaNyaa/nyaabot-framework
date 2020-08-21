@@ -15,7 +15,6 @@
 	<modules>
 		<module>nyaabot-driver</module>
 		<module>nyaabot-processor</module>
-		<module>nyaabot-provider</module>
 	</modules>
 	<dependencies>
 		<dependency>
