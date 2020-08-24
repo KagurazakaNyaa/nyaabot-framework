@@ -17,6 +17,6 @@ public interface IProcessor extends ExtensionPoint {
 	 * 处理消息
 	 * @param message 消息
 	 */
-	public void processMessage(Message message);
+	public void processMessage(Message<?> message);
 
 }

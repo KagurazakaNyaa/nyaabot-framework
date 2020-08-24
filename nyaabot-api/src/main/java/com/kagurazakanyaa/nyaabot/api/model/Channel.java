@@ -35,7 +35,7 @@ public abstract class Channel {
 	 * @param channelCredential 登录凭据
 	 */
 	public Channel(String channelName, IDriver channelDriver, Credential channelCredential) {
-		messageQueue = new ConcurrentLinkedQueue<Message>();
+		messageQueue = new ConcurrentLinkedQueue<>();
 		name = channelName;
 		driver = channelDriver;
 		credential = channelCredential;
@@ -45,7 +45,7 @@ public abstract class Channel {
 	/**
 	 * 消息队列
 	 */
-	private Queue<Message> messageQueue;
+	private Queue<Message<?>> messageQueue;
 
 	/**
 	 * 登录凭据
@@ -73,7 +73,7 @@ public abstract class Channel {
 	 * @param message 消息
 	 * @return 是否成功
 	 */
-	public abstract Boolean sendMessage(Message message);
+	public abstract Boolean sendMessage(Message<?> message);
 
 	/**
 	 * 登录
