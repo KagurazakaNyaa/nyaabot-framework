@@ -24,6 +24,6 @@ public abstract class Credential {
 	/**
 	 * 登录令牌
 	 */
-	private final String token;
+	private String token;
 
 }
