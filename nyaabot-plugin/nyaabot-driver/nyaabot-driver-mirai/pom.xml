@@ -28,4 +28,20 @@
 			<version>1.0.2</version>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<Plugin-Class>com.kagurazakanyaa.nyaabot.driver.mirai.MiraiDriverPlugin</Plugin-Class>
+							<Plugin-Dependencies></Plugin-Dependencies>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

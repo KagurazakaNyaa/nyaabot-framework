@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.kagurazakanyaa</groupId>
@@ -12,13 +14,13 @@
 	<description>驱动插件</description>
 	<modules>
 		<module>nyaabot-driver-discord</module>
-    <module>nyaabot-driver-eve</module>
-    <module>nyaabot-driver-mail</module>
-    <module>nyaabot-driver-mattermost</module>
-    <module>nyaabot-driver-mirai</module>
-    <module>nyaabot-driver-rocketchat</module>
-    <module>nyaabot-driver-slack</module>
-    <module>nyaabot-driver-telegram</module>
-    <module>nyaabot-driver-xmpp</module>
-  </modules>
+		<module>nyaabot-driver-eve</module>
+		<module>nyaabot-driver-mail</module>
+		<module>nyaabot-driver-mattermost</module>
+		<module>nyaabot-driver-mirai</module>
+		<module>nyaabot-driver-rocketchat</module>
+		<module>nyaabot-driver-slack</module>
+		<module>nyaabot-driver-telegram</module>
+		<module>nyaabot-driver-xmpp</module>
+	</modules>
 </project>
