@@ -1,10 +1,10 @@
 package com.kagurazakanyaa.nyaabot.api.model;
 
-import java.util.Queue;
-import java.util.UUID;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.kagurazakanyaa.nyaabot.api.IDriver;
+import com.kagurazakanyaa.nyaabot.api.IMessageListener;
 
 import lombok.Data;
 
@@ -24,33 +24,15 @@ public abstract class Channel {
 	 * @param channelDriver 频道驱动
 	 */
 	public Channel(String channelName, IDriver channelDriver) {
-		this(channelName, channelDriver, null);
-	}
-
-	/**
-	 * 构造函数
-	 * 
-	 * @param channelName       频道名
-	 * @param channelDriver     频道驱动
-	 * @param channelCredential 登录凭据
-	 */
-	public Channel(String channelName, IDriver channelDriver, Credential channelCredential) {
-		messageQueue = new ConcurrentLinkedQueue<>();
 		name = channelName;
 		driver = channelDriver;
-		credential = channelCredential;
-		id = UUID.randomUUID();
+		messageListenerSet = new HashSet<>();
 	}
 
 	/**
-	 * 消息队列
+	 * 消息监听器列表
 	 */
-	private Queue<Message<?>> messageQueue;
-
-	/**
-	 * 登录凭据
-	 */
-	private Credential credential;
+	private Set<IMessageListener> messageListenerSet;
 
 	/**
 	 * 频道驱动
@@ -63,11 +45,6 @@ public abstract class Channel {
 	private final String name;
 
 	/**
-	 * 频道内部唯一ID
-	 */
-	private final UUID id;
-
-	/**
 	 * 发送消息
 	 * 
 	 * @param message 消息
@@ -76,10 +53,24 @@ public abstract class Channel {
 	public abstract Boolean sendMessage(Message<?> message);
 
 	/**
-	 * 登录
+	 * 添加监听器
 	 * 
-	 * @param channelCredential 登录凭据
-	 * @return 是否成功
+	 * @param listener 监听器
 	 */
-	public abstract Boolean login(Credential channelCredential);
+	public void addObserver(IMessageListener listener) {
+		messageListenerSet.add(listener);
+	}
+
+	/**
+	 * 获取消息时调用此方法通知监听器
+	 * 
+	 * @param message 消息
+	 */
+	protected void updateMessage(Message<?> message) {
+		MessageEventObject messageEvent = new MessageEventObject(this);
+		for (IMessageListener listener : messageListenerSet) {
+			listener.update(messageEvent, message);
+		}
+	}
+
 }

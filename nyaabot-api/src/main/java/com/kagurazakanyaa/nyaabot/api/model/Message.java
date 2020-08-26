@@ -1,5 +1,7 @@
 package com.kagurazakanyaa.nyaabot.api.model;
 
+import java.time.LocalDateTime;
+
 import lombok.Data;
 
 /**
@@ -9,7 +11,7 @@ import lombok.Data;
  *
  */
 @Data
-public abstract class Message<T> {
+public class Message<T> {
 
 	/**
 	 * 构造函数
@@ -20,12 +22,18 @@ public abstract class Message<T> {
 	public Message(Channel source, T data) {
 		this.source = source;
 		this.data = data;
+		this.createTime = LocalDateTime.now();
 	}
 
 	/**
 	 * 消息的来源频道
 	 */
 	private final Channel source;
+
+	/**
+	 * 消息的创建时间
+	 */
+	private final LocalDateTime createTime;
 
 	/**
 	 * 消息内容

@@ -23,11 +23,10 @@ public interface IDriver extends ExtensionPoint {
 	public Channel getChannel(String name);
 
 	/**
-	 * 获取频道
+	 * 登录
 	 * 
-	 * @param name              频道名
 	 * @param channelCredential 登录凭据
-	 * @return 频道对象
+	 * @return 是否成功
 	 */
-	public Channel getChannel(String name, Credential channelCredential);
+	public abstract Boolean login(Credential channelCredential);
 }

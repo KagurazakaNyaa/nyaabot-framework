@@ -1,5 +1,8 @@
 package com.kagurazakanyaa.nyaabot.driver.mirai;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.kagurazakanyaa.nyaabot.api.IDriver;
 import com.kagurazakanyaa.nyaabot.api.model.Credential;
 import com.kagurazakanyaa.nyaabot.driver.mirai.model.MiraiChannel;
@@ -10,6 +13,8 @@ import com.kagurazakanyaa.nyaabot.driver.mirai.model.MiraiChannel;
  */
 public class MiraiDriver implements IDriver {
 
+	private Map<String, MiraiChannel> channelMap = new HashMap<>();
+
 	/**
 	 * 获取频道
 	 * 
@@ -18,19 +23,16 @@ public class MiraiDriver implements IDriver {
 	 */
 	@Override
 	public MiraiChannel getChannel(String name) {
-		return new MiraiChannel(name, this);
+		if (!channelMap.containsKey(name)) {
+			channelMap.put(name, new MiraiChannel(name, this));
+		}
+		return channelMap.get(name);
 	}
 
-	/**
-	 * 获取频道
-	 * 
-	 * @param name              频道名
-	 * @param channelCredential 登录凭据
-	 * @return 频道对象
-	 */
 	@Override
-	public MiraiChannel getChannel(String name, Credential channelCredential) {
-		return new MiraiChannel(name, this, channelCredential);
+	public Boolean login(Credential channelCredential) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
