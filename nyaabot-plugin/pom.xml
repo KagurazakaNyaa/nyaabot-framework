@@ -26,6 +26,11 @@
 			<artifactId>nyaabot-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.kagurazakanyaa</groupId>
+			<artifactId>nyaabot-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
