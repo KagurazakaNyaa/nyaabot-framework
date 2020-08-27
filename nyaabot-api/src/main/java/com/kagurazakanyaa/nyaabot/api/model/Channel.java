@@ -27,12 +27,6 @@ public abstract class Channel {
 		name = channelName;
 		driver = channelDriver;
 		messageListenerSet = new HashSet<>();
-		retriveMessageThread = new Thread(new Runnable() {
-			public void run() {
-				retriveMessage();
-			}
-		});
-		retriveMessageThread.start();
 	}
 
 	/**
@@ -51,29 +45,19 @@ public abstract class Channel {
 	private final String name;
 
 	/**
-	 * 消息获取线程，应当调用{@link #retriveMessage()}方法并将其设置为后台线程
-	 */
-	private final Thread retriveMessageThread;
-
-	/**
 	 * 发送消息
 	 * 
 	 * @param message 消息
 	 * @return 是否成功
 	 */
-	public abstract Boolean sendMessage(Message<?> message);
-
-	/**
-	 * 获取消息，应当在获取后调用{@link #updateMessage(Message)}方法将消息下发到监听器
-	 */
-	protected abstract void retriveMessage();
+	public abstract Boolean sendMessage(Object message);
 
 	/**
 	 * 添加监听器
 	 * 
 	 * @param listener 监听器
 	 */
-	public void addObserver(IMessageListener listener) {
+	public final void addObserver(IMessageListener listener) {
 		messageListenerSet.add(listener);
 	}
 
@@ -82,10 +66,9 @@ public abstract class Channel {
 	 * 
 	 * @param message 消息
 	 */
-	protected void updateMessage(Message<?> message) {
-		MessageEventObject messageEvent = new MessageEventObject(this);
+	protected final void updateMessage(Object message) {
 		for (IMessageListener listener : messageListenerSet) {
-			listener.update(messageEvent, message);
+			listener.update(new MessageEventObject(this), message);
 		}
 	}
 
