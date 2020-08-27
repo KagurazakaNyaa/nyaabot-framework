@@ -3,7 +3,7 @@ package com.kagurazakanyaa.nyaabot.api;
 import org.pf4j.ExtensionPoint;
 
 import com.kagurazakanyaa.nyaabot.api.model.Channel;
-import com.kagurazakanyaa.nyaabot.api.model.Credential;
+import com.kagurazakanyaa.nyaabot.api.model.Configuration;
 
 /**
  * 驱动接口，所有消息驱动插件应当实现此接口<br>
@@ -25,8 +25,8 @@ public interface IDriver extends ExtensionPoint {
 	/**
 	 * 登录
 	 * 
-	 * @param credential 登录凭据
+	 * @param configuration 登录凭据
 	 * @return 是否成功
 	 */
-	public Boolean login(Credential credential);
+	public Boolean login(Configuration configuration);
 }
