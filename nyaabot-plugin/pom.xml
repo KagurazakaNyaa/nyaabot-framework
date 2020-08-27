@@ -12,6 +12,10 @@
 	<packaging>pom</packaging>
 	<name>nyaabot-plugin</name>
 	<description>插件</description>
+	<properties>
+		<plugin.class></plugin.class>
+		<plugin.dependencies></plugin.dependencies>
+	</properties>
 	<modules>
 		<module>nyaabot-driver</module>
 		<module>nyaabot-processor</module>
@@ -28,20 +32,32 @@
 			<plugin>
 				<inherited>true</inherited>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
+				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
 					<archive>
 						<manifest>
-                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
 						</manifest>
 						<manifestEntries>
 							<Plugin-Id>${artifactId}</Plugin-Id>
 							<Plugin-Provider>Kagurazaka Nyaa</Plugin-Provider>
 							<Plugin-Version>${project.version}</Plugin-Version>
+							<Plugin-Class>${plugin.class}</Plugin-Class>
+							<Plugin-Dependencies>${plugin.dependencies}</Plugin-Dependencies>
 						</manifestEntries>
 					</archive>
+					<descriptorRefs>jar-with-dependencies</descriptorRefs>
 				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
