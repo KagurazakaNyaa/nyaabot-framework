@@ -28,5 +28,5 @@ public interface IDriver extends ExtensionPoint {
 	 * @param channelCredential 登录凭据
 	 * @return 是否成功
 	 */
-	public abstract Boolean login(Credential channelCredential);
+	public Boolean login(Credential channelCredential);
 }
