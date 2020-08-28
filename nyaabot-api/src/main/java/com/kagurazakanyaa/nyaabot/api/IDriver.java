@@ -23,10 +23,10 @@ public interface IDriver extends ExtensionPoint {
 	public Channel getChannel(String name);
 
 	/**
-	 * 登录
+	 * 初始化
 	 * 
-	 * @param configuration 登录凭据
+	 * @param configuration 插件配置
 	 * @return 是否成功
 	 */
-	public Boolean login(Configuration configuration);
+	public Boolean init(Configuration configuration);
 }

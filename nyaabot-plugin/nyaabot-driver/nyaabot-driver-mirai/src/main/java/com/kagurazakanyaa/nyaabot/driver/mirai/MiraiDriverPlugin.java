@@ -1,17 +1,27 @@
 package com.kagurazakanyaa.nyaabot.driver.mirai;
 
+import java.io.File;
+import java.nio.file.Path;
+
 import org.pf4j.Plugin;
 import org.pf4j.PluginWrapper;
 
+import com.kagurazakanyaa.nyaabot.common.JsonUtil;
+
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Mirai插件生命周期重载
+ * 
  * @author KagurazakaNyaa <i@kagurazakanyaa.com>
  *
  */
+@Slf4j
 public class MiraiDriverPlugin extends Plugin {
 
 	/**
 	 * 插件类构造函数
+	 * 
 	 * @param wrapper
 	 */
 	public MiraiDriverPlugin(PluginWrapper wrapper) {
@@ -23,7 +33,7 @@ public class MiraiDriverPlugin extends Plugin {
 	 */
 	@Override
 	public void start() {
-		System.out.println("MiraiDriverPlugin.start()");
+		log.info("MiraiDriverPlugin Startted");
 	}
 
 	/**
@@ -31,7 +41,10 @@ public class MiraiDriverPlugin extends Plugin {
 	 */
 	@Override
 	public void stop() {
-		System.out.println("MiraiDriverPlugin.stop()");
+		File configFile;
+		configFile = Path.of(MiraiDriver.config.getConfigPath(), "config.json").toFile();
+		JsonUtil.toFile(configFile, MiraiDriver.pluginConfig);
+		log.info("MiraiDriverPlugin Stopped");
 	}
 
 	/**
@@ -39,7 +52,7 @@ public class MiraiDriverPlugin extends Plugin {
 	 */
 	@Override
 	public void delete() {
-		System.out.println("MiraiDriverPlugin.delete()");
+		log.info("MiraiDriverPlugin Deleted");
 	}
 
 }

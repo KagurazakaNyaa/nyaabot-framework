@@ -1,5 +1,6 @@
 package com.kagurazakanyaa.nyaabot.driver.mirai;
 
+import java.io.File;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,11 +27,14 @@ public class MiraiDriver implements IDriver {
 
 	private Map<String, MiraiChannel> channelMap = new HashMap<>();
 
-
 	@Getter
 	private Bot bot = null;
 
-	BotConfiguration config = null;
+	private BotConfiguration botConfig = null;
+
+	static Configuration config = null;
+
+	static MiraiPluginConfiguration pluginConfig = null;
 
 	/**
 	 * 获取频道
@@ -51,12 +55,14 @@ public class MiraiDriver implements IDriver {
 	}
 
 	@Override
-	public Boolean login(Configuration configuration) {
+	public Boolean init(Configuration configuration) {
 		try {
-			config = new BotConfiguration();
-			config.fileBasedDeviceInfo(Path.of(configuration.getConfigPath(), "deviceInfo.json").toString());
-			MiraiPluginConfiguration pluginConfig=JsonUtil.fromFile(Path.of(configuration.getConfigPath(), "config.json").toFile(),MiraiPluginConfiguration.class);
-			bot = BotFactoryJvm.newBot(pluginConfig.getQqNumber(), pluginConfig.getPassword(), config);
+			if(!loadConfig(configuration)) {
+				return false;
+			}
+			botConfig = new BotConfiguration();
+			botConfig.fileBasedDeviceInfo(Path.of(configuration.getConfigPath(), "deviceInfo.json").toString());
+			bot = BotFactoryJvm.newBot(pluginConfig.getQqNumber(), pluginConfig.getPassword(), botConfig);
 			bot.login();
 			updateChannelList();
 			return true;
@@ -65,7 +71,19 @@ public class MiraiDriver implements IDriver {
 			return false;
 		}
 	}
-
+	
+	private static Boolean loadConfig(Configuration configuration) {
+		config = configuration;
+		File configFile;
+		configFile = Path.of(configuration.getConfigPath(), "config.json").toFile();
+		if (!configFile.exists()) {
+			log.error("配置文件不存在");
+			return false;
+		}
+		pluginConfig = JsonUtil.fromFile(configFile, MiraiPluginConfiguration.class);
+		return true;
+	}
+	
 	private void updateChannelList() {
 		if (bot == null) {
 			log.error("获取频道失败，请先登录");
