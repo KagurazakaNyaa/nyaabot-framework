@@ -38,7 +38,7 @@ public class NyaaBotApplication {
 					return;
 				}
 			} catch (Exception ex) {
-				ex.printStackTrace();
+				log.error("在初始化过程中出错", ex);
 				return;
 			}
 		}
