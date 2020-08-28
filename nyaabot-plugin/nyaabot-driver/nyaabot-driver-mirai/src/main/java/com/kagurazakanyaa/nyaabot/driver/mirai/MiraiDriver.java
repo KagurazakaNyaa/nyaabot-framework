@@ -17,6 +17,7 @@ import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.BotFactoryJvm;
 import net.mamoe.mirai.contact.Group;
 import net.mamoe.mirai.utils.BotConfiguration;
+import net.mamoe.mirai.utils.DirectoryLogger;
 
 /**
  * @author KagurazakaNyaa <i@kagurazakanyaa.com>
@@ -57,11 +58,12 @@ public class MiraiDriver implements IDriver {
 	@Override
 	public Boolean init(Configuration configuration) {
 		try {
-			if(!loadConfig(configuration)) {
+			if (!loadConfig(configuration)) {
 				return false;
 			}
 			botConfig = new BotConfiguration();
 			botConfig.fileBasedDeviceInfo(Path.of(configuration.getConfigPath(), "deviceInfo.json").toString());
+			botConfig.setBotLoggerSupplier((Bot basebot) -> new DirectoryLogger(configuration.getLogPath()));
 			bot = BotFactoryJvm.newBot(pluginConfig.getQqNumber(), pluginConfig.getPassword(), botConfig);
 			bot.login();
 			updateChannelList();
@@ -71,7 +73,7 @@ public class MiraiDriver implements IDriver {
 			return false;
 		}
 	}
-	
+
 	private static Boolean loadConfig(Configuration configuration) {
 		config = configuration;
 		File configFile;
@@ -83,7 +85,7 @@ public class MiraiDriver implements IDriver {
 		pluginConfig = JsonUtil.fromFile(configFile, MiraiPluginConfiguration.class);
 		return true;
 	}
-	
+
 	private void updateChannelList() {
 		if (bot == null) {
 			log.error("获取频道失败，请先登录");
