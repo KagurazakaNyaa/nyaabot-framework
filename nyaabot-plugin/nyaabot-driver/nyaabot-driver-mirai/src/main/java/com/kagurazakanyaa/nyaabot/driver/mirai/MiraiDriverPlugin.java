@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * Mirai插件生命周期重载
  * 
- * @author KagurazakaNyaa <i@kagurazakanyaa.com>
+ * @author KagurazakaNyaa
  *
  */
 @Slf4j

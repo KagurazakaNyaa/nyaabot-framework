@@ -20,7 +20,7 @@ import net.mamoe.mirai.utils.BotConfiguration;
 import net.mamoe.mirai.utils.DirectoryLogger;
 
 /**
- * @author KagurazakaNyaa <i@kagurazakanyaa.com>
+ * @author KagurazakaNyaa
  *
  */
 @Slf4j

@@ -5,7 +5,7 @@ import java.util.EventObject;
 /**
  * 消息事件对象
  * 
- * @author KagurazakaNyaa <i@kagurazakanyaa.com>
+ * @author KagurazakaNyaa
  *
  */
 public class MessageEventObject extends EventObject {

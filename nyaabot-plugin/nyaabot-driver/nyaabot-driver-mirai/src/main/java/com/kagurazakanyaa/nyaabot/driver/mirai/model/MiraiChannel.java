@@ -11,7 +11,7 @@ import net.mamoe.mirai.message.data.Message;
 /**
  * QQ消息频道
  * 
- * @author KagurazakaNyaa <i@kagurazakanyaa.com>
+ * @author KagurazakaNyaa
  *
  */
 @Slf4j

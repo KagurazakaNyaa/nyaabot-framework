@@ -11,7 +11,7 @@ import lombok.Data;
 /**
  * 频道类，包含用于发送消息的数据
  * 
- * @author KagurazakaNyaa <i@kagurazakanyaa.com>
+ * @author KagurazakaNyaa
  *
  */
 @Data

@@ -9,7 +9,7 @@ import com.kagurazakanyaa.nyaabot.api.model.Configuration;
  * 驱动接口，所有消息驱动插件应当实现此接口<br>
  * 驱动应当被提供者调用并接收和发送消息
  * 
- * @author KagurazakaNyaa <i@kagurazakanyaa.com>
+ * @author KagurazakaNyaa
  *
  */
 public interface IDriver extends ExtensionPoint {

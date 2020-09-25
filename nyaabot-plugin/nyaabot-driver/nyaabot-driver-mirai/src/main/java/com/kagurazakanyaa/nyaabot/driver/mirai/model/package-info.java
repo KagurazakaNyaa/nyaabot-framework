@@ -1,7 +1,7 @@
 /**
  * 驱动的内部模型
  * 
- * @author KagurazakaNyaa <i@kagurazakanyaa.com>
+ * @author KagurazakaNyaa
  *
  */
 package com.kagurazakanyaa.nyaabot.driver.mirai.model;

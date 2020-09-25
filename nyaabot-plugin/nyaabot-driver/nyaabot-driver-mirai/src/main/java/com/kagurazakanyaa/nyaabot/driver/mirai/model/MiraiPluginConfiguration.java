@@ -3,7 +3,7 @@ package com.kagurazakanyaa.nyaabot.driver.mirai.model;
 import lombok.Data;
 
 /**
- * @author KagurazakaNyaa <i@kagurazakanyaa.com>
+ * @author KagurazakaNyaa
  *
  */
 @Data

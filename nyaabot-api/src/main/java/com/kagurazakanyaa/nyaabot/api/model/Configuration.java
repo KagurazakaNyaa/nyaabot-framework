@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * 配置类，用于存储驱动的配置，应当由<code>/app/config/{plugin-id}.json</code>反序列化而来
  * 
- * @author KagurazakaNyaa <i@kagurazakanyaa.com>
+ * @author KagurazakaNyaa
  *
  */
 @Data

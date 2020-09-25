@@ -7,7 +7,7 @@ import com.kagurazakanyaa.nyaabot.api.model.MessageEventObject;
 /**
  * 消息事件监听接口
  * 
- * @author KagurazakaNyaa <i@kagurazakanyaa.com>
+ * @author KagurazakaNyaa
  *
  */
 public interface IMessageListener extends EventListener {

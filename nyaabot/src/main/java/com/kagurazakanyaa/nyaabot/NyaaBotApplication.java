@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * 启动类
  * 
- * @author KagurazakaNyaa <i@kagurazakanyaa.com>
+ * @author KagurazakaNyaa
  *
  */
 @Slf4j

@@ -1,6 +1,6 @@
 /**
  * 事件管理器包
- * @author KagurazakaNyaa <i@kagurazakanyaa.com>
+ * @author KagurazakaNyaa
  *
  */
 package com.kagurazakanyaa.nyaabot.mamager;
