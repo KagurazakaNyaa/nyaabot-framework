@@ -25,7 +25,7 @@
 		<dependency>
 			<groupId>org.igniterealtime.smack</groupId>
 			<artifactId>smack-java8-full</artifactId>
-			<version>4.4.0-beta1</version>
+			<version>4.4.0-rc1</version>
 		</dependency>
 	</dependencies>
 </project>

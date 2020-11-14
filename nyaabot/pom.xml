@@ -13,7 +13,7 @@
 	<name>nyaabot</name>
 	<url>https://github.com/KagurazakaNyaa/nyaabot-framework</url>
 	<properties>
-		<jib.version>2.5.2</jib.version>
+		<jib.version>2.6.0</jib.version>
 		<docker.image.name>nyaabot</docker.image.name>
 	</properties>
 	<dependencies>
