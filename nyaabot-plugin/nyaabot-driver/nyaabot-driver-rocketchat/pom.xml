@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
-<project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
@@ -12,26 +11,20 @@
 	<artifactId>nyaabot-driver-rocketchat</artifactId>
 	<name>nyaabot-driver-rocketchat</name>
 	<url>http://maven.apache.org</url>
-	<repositories>
-		<repository>
-			<id>repo-snapshots</id>
-			<url>https://repo.craftyn.com/repository/snapshots/</url>
-		</repository>
-	</repositories>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.github.baloise</groupId>
-			<artifactId>rocket-chat-rest-client</artifactId>
-			<version>0.1.2-SNAPSHOT</version>
+			<groupId>com.github.daniel-sc</groupId>
+			<artifactId>rocketchat-modern-client</artifactId>
+			<version>0.1.0</version>
 		</dependency>
 	</dependencies>
 </project>

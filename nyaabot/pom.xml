@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
-<project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
@@ -13,14 +12,14 @@
 	<name>nyaabot</name>
 	<url>https://github.com/KagurazakaNyaa/nyaabot-framework</url>
 	<properties>
-		<jib.version>2.6.0</jib.version>
-		<docker.image.name>nyaabot</docker.image.name>
+		<jib.version>3.1.2</jib.version>
+		<docker.image.name>kagurazakanyaa/nyaabot</docker.image.name>
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -47,7 +46,7 @@
 				<version>${jib.version}</version>
 				<configuration>
 					<from>
-						<image>openjdk:11</image>
+						<image>adoptopenjdk:11-jre</image>
 					</from>
 					<to>
 						<image>${docker.image.name}</image>

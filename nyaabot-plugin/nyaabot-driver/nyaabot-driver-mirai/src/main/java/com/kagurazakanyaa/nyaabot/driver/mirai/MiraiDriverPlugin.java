@@ -33,7 +33,7 @@ public class MiraiDriverPlugin extends Plugin {
 	 */
 	@Override
 	public void start() {
-		log.info("MiraiDriverPlugin Startted");
+		log.info("MiraiDriverPlugin Started");
 	}
 
 	/**

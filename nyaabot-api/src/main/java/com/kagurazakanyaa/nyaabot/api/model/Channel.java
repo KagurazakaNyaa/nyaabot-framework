@@ -23,7 +23,7 @@ public abstract class Channel {
 	 * @param channelName   频道名
 	 * @param channelDriver 频道驱动
 	 */
-	public Channel(String channelName, IDriver channelDriver) {
+	protected Channel(String channelName, IDriver channelDriver) {
 		name = channelName;
 		driver = channelDriver;
 		messageListenerSet = new HashSet<>();

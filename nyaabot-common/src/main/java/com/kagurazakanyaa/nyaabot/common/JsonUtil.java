@@ -20,12 +20,13 @@ public class JsonUtil {
 	private JsonUtil() {
 	}
 
-	private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
+	private static Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 
 	/**
 	 * 反序列化，从文件
-	 * @param <T> 类型
-	 * @param file 文件
+	 * 
+	 * @param <T>   类型
+	 * @param file  文件
 	 * @param clazz 类
 	 * @return 对象
 	 */
@@ -40,13 +41,14 @@ public class JsonUtil {
 
 	/**
 	 * 序列化到文件
-	 * @param <T> 类型
+	 * 
+	 * @param <T>  类型
 	 * @param file 文件
-	 * @param obj 对象
+	 * @param obj  对象
 	 */
 	public static <T> void toFile(File file, T obj) {
 		try {
-			FileWriter writer = new FileWriter(file);
+			var writer = new FileWriter(file);
 			gson.toJson(obj, writer);
 		} catch (Exception e) {
 			log.error("序列化出错", e);

@@ -15,7 +15,7 @@ public class Configuration {
 	 * 日志路径，默认值应当是<code>/app/logs/{plugin-id}/</code>
 	 */
 	private String logPath;
-	
+
 	/**
 	 * 配置路径，默认值应当是<code>/app/configs/{plugin-id}/</code>
 	 */

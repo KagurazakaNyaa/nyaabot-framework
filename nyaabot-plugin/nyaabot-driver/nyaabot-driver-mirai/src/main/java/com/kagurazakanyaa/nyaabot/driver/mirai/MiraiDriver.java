@@ -14,7 +14,7 @@ import com.kagurazakanyaa.nyaabot.driver.mirai.model.MiraiPluginConfiguration;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.mamoe.mirai.Bot;
-import net.mamoe.mirai.BotFactoryJvm;
+import net.mamoe.mirai.BotFactory;
 import net.mamoe.mirai.contact.Group;
 import net.mamoe.mirai.utils.BotConfiguration;
 import net.mamoe.mirai.utils.DirectoryLogger;
@@ -30,8 +30,6 @@ public class MiraiDriver implements IDriver {
 
 	@Getter
 	private Bot bot = null;
-
-	private BotConfiguration botConfig = null;
 
 	static Configuration config = null;
 
@@ -58,13 +56,13 @@ public class MiraiDriver implements IDriver {
 	@Override
 	public Boolean init(Configuration configuration) {
 		try {
-			if (!loadConfig(configuration)) {
+			if (Boolean.FALSE.equals(loadConfig(configuration))) {
 				return false;
 			}
-			botConfig = new BotConfiguration();
+			var botConfig = new BotConfiguration();
 			botConfig.fileBasedDeviceInfo(Path.of(configuration.getConfigPath(), "deviceInfo.json").toString());
 			botConfig.setBotLoggerSupplier((Bot basebot) -> new DirectoryLogger(configuration.getLogPath()));
-			bot = BotFactoryJvm.newBot(pluginConfig.getQqNumber(), pluginConfig.getPassword(), botConfig);
+			bot = BotFactory.INSTANCE.newBot(pluginConfig.getQqNumber(), pluginConfig.getPassword(), botConfig);
 			bot.login();
 			updateChannelList();
 			return true;
@@ -92,10 +90,8 @@ public class MiraiDriver implements IDriver {
 			return;
 		}
 		for (Group group : bot.getGroups()) {
-			String name = String.valueOf(group.getId());
-			if (!channelMap.containsKey(name)) {
-				channelMap.put(name, new MiraiChannel(name, this));
-			}
+			var name = String.valueOf(group.getId());
+			channelMap.computeIfAbsent(name, n -> new MiraiChannel(n, this));
 		}
 	}
 
