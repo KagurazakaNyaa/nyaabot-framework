@@ -1,7 +1,13 @@
+# 存档说明
+
+此项目将被存档，新的项目将在[这里](https://github.com/NyaaBot)继续
+
 # nyaabot-framework
+
 插件化聊天机器人框架
 
 ## 说明
+
 此项目由四个部分构成
 - nyaabot
 - nyaabot-api
